@@ -1,0 +1,30 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+.home{
+	padding: 0px 0px 10px 0px;
+	background-color: #ffffff;
+}
+.nav{
+	box-sizing: border-box;
+	display: inline-block;
+	padding: 10px 0px 10px 0px;
+	background-color:#063d6d;
+	width: 100%;
+	height: auto;
+}
+#t1{
+	font-family: Helvetica;
+	font-weight: bold;
+	text-align: center;
+	font-size: 50px;
+	color: white;
+}
+#t2{
+	font-family: Helvetica;
+	font-weight: bold;
+	text-align: center;
+	font-size: 20px;
+	color: white;
+}
