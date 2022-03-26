@@ -16,22 +16,24 @@ client.connect(options);
 function onConnect() {
   // Once a connection has been made, make a subscription and send a message.
   console.log("Successful Connection");
+  document.getElementById("state").innerHTML="Successful Connection";
   client.subscribe("web.jhonatanlamina@gmail.com/t1");
   //message = new Paho.MQTT.Message("New Connection");
   //message.destinationName = "web.jhonatanlamina@gmail.com/t2";
   //client.send(message);
 }
 function doFail(e){
+  alert("A connection error has occurred. Try again later.")
   console.log(e);
-  document.getElementById("enter").value="No Disponible";
-  document.getElementById("enter").disabled="true";
+  document.getElementById("state").innerHTML="Failed Connection";
+  document.getElementById("data").remove();
 }
 //Called when the client loses its connection
 function onConnectionLost(responseObject) {
   if (responseObject.errorCode != 0) {
     console.log("Connection Lost:"+responseObject.errorMessage);
-    document.getElementById("enter").value="No Disponible";
-    document.getElementById("enter").disabled="true";
+    document.getElementById("state").innerHTML="Lost Connection";
+    //document.getElementById("data").remove();
   }
 }
 //Called when a message arrives
@@ -39,6 +41,6 @@ function onMessageArrived(message) {
   console.log("New data received: "+message.payloadString);
   //alert(message.payloadString);
   //document.getElementById('data').innerHTML=message.payloadString
-  var text = document.createTextNode(message.payloadString+" || ");                                    
+  var text = document.createTextNode(message.payloadString+" |-|-|-| ");
   document.getElementById('data').appendChild(text);
 }
